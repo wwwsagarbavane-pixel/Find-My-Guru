@@ -1,0 +1,1913 @@
+/* ==========================================================================
+   FindMyGuru - Modern Premium Pricing Page Stylesheet
+   Crafted with pixel-precision and crystal-clear vector aesthetics
+   ========================================================================== */
+
+/* --- CSS Variables & Design Tokens --- */
+:root {
+  --primary-blue: #0084FF;
+  --primary-blue-hover: #0070DF;
+  --primary-blue-light: #EBF3FE;
+  --primary-blue-subtle: #F0F7FF;
+  --primary-navy: #0F172A;
+  --text-dark: #0A1C3E;
+  --text-body: #64748B;
+  --text-muted: #94A3B8;
+  --border-card: #E2E8F0;
+  --border-light: #F1F5F9;
+  --card-bg: #FFFFFF;
+  --bg-page: #F8FBFE;
+  
+  --success-green: #10B981;
+  --success-light: #DCFCE7;
+  --coin-gold: #F59E0B;
+  --coin-gold-light: #FEF3C7;
+  --purple-accent: #7C3AED;
+  --purple-light: #F3E8FF;
+  
+  --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --container-max-width: 1220px;
+  --transition-smooth: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- Base & Reset --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  background: linear-gradient(180deg, #FFFFFF 0%, #F5F9FE 40%, #FFFFFF 100%);
+  color: var(--primary-navy);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-smooth);
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline: none;
+  transition: var(--transition-smooth);
+}
+
+/* --- Layout Container --- */
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ==========================================================================
+   FLOATING PILL NAVBAR
+   ========================================================================== */
+.floating-header-wrapper {
+  position: relative;
+  top: 0;
+  z-index: 100;
+  padding: 16px 24px 0;
+  margin-bottom: 28px;
+}
+
+.floating-nav-pill {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 9999px;
+  padding: 8px 18px 8px 20px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 6px 25px -4px rgba(15, 23, 42, 0.06);
+  transition: var(--transition-smooth);
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.logo-vector-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logo-text-group {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+
+.logo-find {
+  font-size: 15px;
+  font-weight: 900;
+  color: #0A1C3E;
+  letter-spacing: -0.3px;
+}
+
+.logo-myguru {
+  font-size: 15px;
+  font-weight: 900;
+  color: var(--primary-blue);
+  letter-spacing: -0.3px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-item-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-item {
+  font-size: 14px;
+  font-weight: 500;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 0;
+  transition: var(--transition-smooth);
+}
+
+.dropdown-caret {
+  font-size: 10px;
+  color: #64748B;
+  transition: transform 0.2s ease;
+}
+
+.nav-item:hover {
+  color: var(--primary-blue);
+}
+
+.nav-item:hover .dropdown-caret {
+  color: var(--primary-blue);
+  transform: translateY(1px);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.btn-tutor-login {
+  background: linear-gradient(135deg, #0084FF 0%, #0070E0 100%);
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 9px 22px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(0, 132, 255, 0.3);
+  transition: var(--transition-smooth);
+}
+
+.btn-tutor-login:hover {
+  background: linear-gradient(135deg, #0075E6 0%, #0060C5 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 132, 255, 0.4);
+}
+
+.btn-tutor-login .login-arrow {
+  font-size: 15px;
+  transition: transform 0.2s ease;
+}
+
+.btn-tutor-login:hover .login-arrow {
+  transform: translateX(3px);
+}
+
+/* ==========================================================================
+   INVEST IN LEARNING HERO SECTION (EXACT PREVIOUS DESIGN)
+   ========================================================================== */
+.invest-hero-section {
+  padding: 30px 0 65px;
+  position: relative;
+  overflow: visible;
+}
+
+.invest-hero-container {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  align-items: center;
+  gap: 48px;
+  position: relative;
+}
+
+/* --- Left Column Content --- */
+.invest-hero-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 2;
+}
+
+.pricing-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  background-color: #EBF3FE;
+  color: var(--primary-blue);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 18px;
+  border-radius: 9999px;
+  margin-bottom: 22px;
+  letter-spacing: -0.1px;
+}
+
+.invest-hero-title {
+  font-size: 52px;
+  font-weight: 850;
+  line-height: 1.12;
+  color: #0A1C3E;
+  letter-spacing: -0.025em;
+  margin-bottom: 20px;
+}
+
+.invest-hero-title .highlight-blue {
+  color: var(--primary-blue);
+}
+
+.invest-hero-description {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: #64748B;
+  margin-bottom: 32px;
+  max-width: 480px;
+  font-weight: 400;
+}
+
+/* 3 Horizontal Feature Cards */
+.invest-features-row {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  margin-bottom: 36px;
+  width: 100%;
+}
+
+.invest-feat-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #FFFFFF;
+  border: 1.5px solid #F1F5F9;
+  border-radius: 14px;
+  padding: 10px 14px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  flex: 1;
+}
+
+.invest-feat-card:hover {
+  transform: translateY(-2px);
+  border-color: #BFDBFE;
+  box-shadow: 0 8px 20px rgba(0, 132, 255, 0.08);
+}
+
+.feat-icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.feat-icon-box.blue-box {
+  background-color: #EBF3FE;
+}
+
+.feat-icon-box.cyan-box {
+  background-color: #E0F2FE;
+}
+
+.feat-icon-box.purple-box {
+  background-color: #F3E8FF;
+}
+
+.feat-text {
+  font-size: 12px;
+  font-weight: 700;
+  color: #1E293B;
+  line-height: 1.25;
+}
+
+/* View Plans CTA Button */
+.invest-cta-wrap {
+  margin-top: 4px;
+}
+
+.btn-invest-view-plans {
+  background: linear-gradient(135deg, #0084FF 0%, #006FE6 100%);
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 14px 34px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 10px 26px -2px rgba(0, 132, 255, 0.44);
+  transition: var(--transition-smooth);
+}
+
+.btn-invest-view-plans:hover {
+  background: linear-gradient(135deg, #0075E6 0%, #005FCE 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px -2px rgba(0, 132, 255, 0.55);
+}
+
+.btn-invest-view-plans .arrow {
+  font-size: 18px;
+  transition: transform 0.2s ease;
+}
+
+.btn-invest-view-plans:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* --- Right Column Visual --- */
+.invest-hero-right {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.invest-aura-glow {
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 132, 255, 0.09) 0%, rgba(139, 92, 246, 0.05) 50%, transparent 70%);
+  filter: blur(44px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.invest-image-wrapper {
+  position: relative;
+  z-index: 1;
+  border-radius: 32px;
+  box-shadow: 0 24px 55px -12px rgba(15, 23, 42, 0.16), 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.invest-tutor-img {
+  width: 100%;
+  max-width: 530px;
+  height: auto;
+  border-radius: 32px;
+  display: block;
+  object-fit: cover;
+}
+
+/* Floating Badges */
+.invest-floating-badge {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 18px;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.13), 0 2px 8px rgba(0, 0, 0, 0.04);
+  z-index: 5;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.invest-floating-badge:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 42px rgba(15, 23, 42, 0.18);
+}
+
+/* Floating Badge 1: Teach / Grow / Earn */
+.badge-teach-grow {
+  top: -24px;
+  left: -24px;
+  padding: 13px 18px 13px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.badge-icon-sq.purple-sq {
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  background-color: #F3E8FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.badge-stacked-text {
+  display: flex;
+  flex-direction: column;
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #0F172A;
+  line-height: 1.2;
+}
+
+/* Floating Badge 2: Join thousands of tutors */
+.badge-join-tutors {
+  top: 22px;
+  right: -28px;
+  padding: 11px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.badge-avatars-row {
+  display: flex;
+  align-items: center;
+}
+
+.avatar-sm {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid #FFFFFF;
+  margin-left: -8px;
+  object-fit: cover;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+}
+
+.avatar-sm:first-child {
+  margin-left: 0;
+}
+
+.badge-text-col {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.badge-text-col .join-title {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.badge-text-col .join-sub {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #64748B;
+}
+
+/* Responsive Breakpoints for Hero */
+@media (max-width: 1024px) {
+  .invest-hero-container {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .invest-hero-left {
+    align-items: center;
+    text-align: center;
+  }
+
+  .invest-hero-description {
+    max-width: 600px;
+  }
+
+  .invest-features-row {
+    justify-content: center;
+    max-width: 580px;
+  }
+
+  .invest-image-wrapper {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .invest-hero-title {
+    font-size: 36px;
+  }
+
+  .invest-features-row {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .badge-teach-grow {
+    left: 0;
+    top: -16px;
+  }
+
+  .badge-join-tutors {
+    right: 0;
+    top: 10px;
+  }
+}
+
+/* ==========================================================================
+   Dual Plan Overview Section (Subscription vs Coins)
+   ========================================================================== */
+.plan-types-section {
+  padding: 30px 0 40px;
+}
+
+.plan-types-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.plan-overview-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-card);
+  border-radius: 20px;
+  padding: 28px 32px;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.03);
+  transition: var(--transition-smooth);
+}
+
+.plan-overview-card:hover {
+  border-color: #CBD5E1;
+  box-shadow: 0 10px 30px -4px rgba(15, 23, 42, 0.06);
+}
+
+.plan-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.plan-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.plan-card-icon.blue-bg {
+  background-color: var(--primary-blue-light);
+}
+
+.plan-card-icon.gold-bg {
+  background-color: var(--coin-gold-light);
+}
+
+.plan-card-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 2px;
+}
+
+.plan-card-subtitle {
+  font-size: 13.5px;
+  color: var(--text-body);
+}
+
+.plan-features-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.feature-checklist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.feature-checklist li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #334155;
+  font-weight: 500;
+}
+
+.check-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #DCFCE7;
+  color: #16A34A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   FindMyGuru Tutor Plans (4 Pricing Cards)
+   ========================================================================== */
+.pricing-plans-section {
+  padding: 40px 0 50px;
+}
+
+.pricing-header-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.pricing-header-center {
+  text-align: left;
+}
+
+.badge-pill.mini-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 14px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  background-color: var(--primary-blue-light);
+  color: var(--primary-blue);
+  border-radius: 9999px;
+  display: inline-block;
+}
+
+.section-heading {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.8px;
+  margin-bottom: 6px;
+}
+
+.section-subheading {
+  font-size: 15px;
+  color: var(--text-body);
+}
+
+/* Plan Tab Toggle (Subscription Plan vs Coins Plan) */
+.plan-tab-toggle-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.plan-tab-toggle {
+  background-color: #EFF4FA;
+  padding: 5px;
+  border-radius: 9999px;
+  display: inline-flex;
+  gap: 4px;
+  border: 1px solid #E2E8F0;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.tab-toggle-btn {
+  padding: 8px 22px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #64748B;
+  border-radius: 9999px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.tab-toggle-btn:hover {
+  color: #0F172A;
+}
+
+.tab-toggle-btn.active {
+  background-color: var(--primary-blue);
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(0, 132, 255, 0.32);
+}
+
+/* Pricing Grid */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Coins Plans Grid (3 columns centered) */
+.pricing-grid.coins-plans-grid {
+  grid-template-columns: repeat(3, minmax(0, 360px));
+  justify-content: center;
+  gap: 24px;
+}
+
+.pricing-tier-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-card);
+  border-radius: 20px;
+  padding: 28px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transition: var(--transition-smooth);
+}
+
+.pricing-tier-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -8px rgba(15, 23, 42, 0.08);
+}
+
+/* Popular Pro Card Highlight */
+.pricing-tier-card.popular-card {
+  border: 2px solid var(--primary-blue);
+  box-shadow: 0 14px 38px -6px rgba(0, 132, 255, 0.16);
+  z-index: 2;
+}
+
+.popular-ribbon {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--primary-blue);
+  color: #FFFFFF;
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 4px 16px;
+  border-radius: 9999px;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 10px rgba(0, 132, 255, 0.25);
+  white-space: nowrap;
+}
+
+/* Tier Header Row (Logo on side, title and subtitle next to it) */
+.tier-header-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.tier-header-row .tier-icon-circle {
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+.tier-header-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.tier-header-text .tier-name {
+  margin-bottom: 2px;
+  line-height: 1.25;
+}
+
+.tier-header-text .tier-subtext {
+  margin-bottom: 0;
+  line-height: 1.35;
+}
+
+.tier-icon-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.blue-icon-circle { background-color: var(--primary-blue-light); }
+.green-icon-circle { background-color: var(--success-light); }
+.purple-icon-circle { background-color: var(--purple-light); }
+.gold-icon-circle { background-color: var(--coin-gold-light); }
+
+.tier-name {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 2px;
+}
+
+.tier-subtext {
+  font-size: 12.5px;
+  color: var(--text-body);
+  margin-bottom: 18px;
+}
+
+/* Badge for Coins Card */
+.plan-tag-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  background-color: #FEF3C7;
+  color: #B45309;
+  border: 1px solid #FDE68A;
+  margin-bottom: 14px;
+  width: fit-content;
+}
+
+.coins-features-heading {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 14px;
+}
+
+.coins-plans-grid .price-value {
+  font-size: 28px;
+  letter-spacing: -0.5px;
+}
+
+.coins-plans-grid .price-period {
+  font-size: 13px;
+  font-weight: 700;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tier-pricing {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 22px;
+  padding-bottom: 16px;
+  border-bottom: 1.5px solid #EEF2F6;
+}
+
+.price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+.tier-pricing .currency {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--primary-blue);
+  line-height: 1;
+}
+
+.tier-pricing .price-value {
+  font-size: 36px;
+  font-weight: 850;
+  color: var(--primary-blue);
+  letter-spacing: -0.6px;
+  line-height: 1;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.tier-pricing .price-value.free-val {
+  font-size: 36px;
+  font-weight: 850;
+  color: var(--primary-blue);
+  letter-spacing: -0.6px;
+}
+
+.tier-pricing .price-period {
+  font-size: 14px;
+  color: #64748B;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+.tier-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  margin-bottom: 26px;
+  flex-grow: 1;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #1E293B;
+  line-height: 1.4;
+}
+
+.feature-item.included {
+  color: #1E293B;
+}
+
+.feature-item.excluded {
+  color: #94A3B8;
+}
+
+.feature-item .icon {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.feature-item .icon.check {
+  color: #10B981;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.feature-text-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-text-block strong {
+  font-weight: 750;
+  color: #0A1C3E;
+}
+
+.feature-text-block .sub-leads {
+  font-size: 12px;
+  color: #64748B;
+  font-weight: 500;
+}
+
+.feature-item .icon.check {
+  color: #10B981;
+}
+
+.feature-item .icon.cross {
+  color: #EF4444;
+}
+
+/* Tier Buttons */
+.tier-btn {
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  transition: var(--transition-smooth);
+}
+
+.btn-outline {
+  background-color: #FFFFFF;
+  border: 1.5px solid #CBD5E1;
+  color: var(--primary-blue);
+}
+
+.btn-outline:hover {
+  border-color: var(--primary-blue);
+  background-color: var(--primary-blue-subtle);
+}
+
+.btn-soft {
+  background-color: var(--primary-blue-light);
+  color: var(--primary-blue);
+  border: 1px solid #D0E2FF;
+}
+
+.btn-soft:hover {
+  background-color: #DCEAFE;
+}
+
+.btn-solid-blue {
+  background-color: var(--primary-blue);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(0, 132, 255, 0.28);
+}
+
+.btn-solid-blue:hover {
+  background-color: var(--primary-blue-hover);
+  box-shadow: 0 6px 18px rgba(0, 132, 255, 0.38);
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   COINS GUIDE & WHY TUTORS CHOOSE SECTION (PIXEL-PERFECT ALIGNMENT)
+   ========================================================================== */
+.coins-guide-section {
+  padding: 40px 0 65px;
+  position: relative;
+}
+
+.coins-guide-container {
+  display: grid;
+  grid-template-columns: 1.42fr 1fr;
+  gap: 52px;
+  align-items: start;
+}
+
+/* Header Blocks on both columns for synchronized alignment */
+.coins-guide-header-block {
+  min-height: 98px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: 22px;
+}
+
+.section-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--primary-blue);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.coins-guide-heading {
+  font-size: 36px;
+  font-weight: 850;
+  color: #0A1C3E;
+  letter-spacing: -0.6px;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.coins-guide-heading .highlight-blue,
+.highlight-blue {
+  color: var(--primary-blue) !important;
+}
+
+/* --- Left Column: How coins work --- */
+.coins-guide-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.coins-cards-split {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 16px;
+  align-items: stretch;
+  margin-bottom: 16px;
+}
+
+/* Left Card: Better Value on Higher Packs */
+.better-value-card {
+  background-color: #FFFFFF;
+  border: 1.5px solid #F1F5F9;
+  border-radius: 20px;
+  padding: 22px 22px 18px;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.03);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.card-header-icon-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.coin-stack-icon-box {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: #EBF4FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.better-value-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: #0A1C3E;
+  letter-spacing: -0.2px;
+  line-height: 1.25;
+}
+
+.packs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.pack-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.pack-num-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #EBF3FE;
+  color: #0A1C3E;
+  font-size: 12px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.pack-text {
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: #1E293B;
+}
+
+.pack-text strong {
+  font-weight: 800;
+  color: #0A1C3E;
+}
+
+.pack-sub {
+  color: #475569;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.pack-bottom-strip {
+  background-color: #F0F7FF;
+  border-radius: 12px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #0070DF;
+  line-height: 1.35;
+}
+
+.trend-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Right Stacked Mini Rule Cards */
+.mini-cards-stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  height: 100%;
+}
+
+.mini-rule-card {
+  background-color: #FFFFFF;
+  border: 1.5px solid #F1F5F9;
+  border-radius: 18px;
+  padding: 15px 18px;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mini-rule-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0, 132, 255, 0.06);
+}
+
+.rule-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.rule-icon-box.yellow-box {
+  background-color: #FEF3C7;
+}
+
+.rule-icon-box.blue-box {
+  background-color: #EFF6FF;
+}
+
+.rule-content {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.rule-title {
+  font-size: 14px;
+  font-weight: 800;
+  color: #0A1C3E;
+  margin-bottom: 2px;
+}
+
+.rule-desc {
+  font-size: 12px;
+  color: #64748B;
+  font-weight: 500;
+}
+
+/* Wide Info Banner */
+.coins-info-banner {
+  background-color: #F0F7FF;
+  border: 1px solid #D6E8FC;
+  border-radius: 16px;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.info-icon-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--primary-blue);
+}
+
+.info-banner-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.info-banner-bullets li {
+  font-size: 12.5px;
+  color: #334155;
+  font-weight: 500;
+  position: relative;
+  padding-left: 14px;
+  line-height: 1.45;
+}
+
+.info-banner-bullets li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--primary-blue);
+  font-weight: bold;
+}
+
+/* Buy coins CTA Button */
+.coins-cta-wrap {
+  margin-top: 4px;
+}
+
+.btn-buy-coins {
+  background: linear-gradient(135deg, #0084FF 0%, #006CE0 100%);
+  color: #FFFFFF;
+  font-size: 14.5px;
+  font-weight: 700;
+  padding: 13px 32px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 8px 22px rgba(0, 132, 255, 0.38);
+  transition: var(--transition-smooth);
+}
+
+.btn-buy-coins:hover {
+  background: linear-gradient(135deg, #0075E6 0%, #005FCE 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 132, 255, 0.5);
+}
+
+.btn-buy-coins .arrow {
+  font-size: 17px;
+  transition: transform 0.2s ease;
+}
+
+.btn-buy-coins:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* --- Right Column: Why Tutors Choose FindMyGuru --- */
+.coins-guide-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.why-choose-list-v2 {
+  display: flex;
+  flex-direction: column;
+}
+
+.why-choose-item-v2 {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 0;
+  border-bottom: 1.5px solid #EEF2F6;
+}
+
+.why-choose-item-v2:first-child {
+  padding-top: 4px;
+}
+
+.why-choose-item-v2:last-child {
+  border-bottom: none;
+}
+
+.green-check-badge {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #D1FAE5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.inner-green-dot {
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background-color: #10B981;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.why-item-text {
+  font-size: 14.5px;
+  font-weight: 500;
+  color: #1E293B;
+  line-height: 1.45;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .coins-guide-container {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+
+  .coins-cards-split {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .coins-guide-heading {
+    font-size: 28px;
+  }
+
+  .packs-list {
+    gap: 12px;
+  }
+
+  .coins-info-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+/* ==========================================================================
+   FAQ Section
+   ========================================================================== */
+.faq-section {
+  padding: 50px 0 60px;
+}
+
+.faq-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 32px;
+}
+
+.faq-column {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.faq-item {
+  border-bottom: 1px solid #E2E8F0;
+  padding-bottom: 14px;
+  transition: var(--transition-smooth);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--text-dark);
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.faq-question:hover {
+  color: var(--primary-blue);
+}
+
+.faq-toggle-icon {
+  font-size: 19px;
+  font-weight: 400;
+  color: var(--primary-blue);
+  transition: transform 0.25s ease;
+}
+
+.faq-item.active .faq-toggle-icon {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
+  color: var(--text-body);
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 250px;
+  padding-top: 8px;
+  transition: max-height 0.3s ease-in-out;
+}
+
+/* ==========================================================================
+   Pre-Footer CTA Banner
+   ========================================================================== */
+.prefooter-banner-section {
+  padding: 30px 0 60px;
+}
+
+.prefooter-banner-card {
+  background: linear-gradient(135deg, #E6F0FD 0%, #D8EAFF 100%);
+  border-radius: 28px;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 40px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 30px -5px rgba(0, 132, 255, 0.08);
+}
+
+.banner-left-content {
+  padding: 44px 0;
+}
+
+.banner-title {
+  font-size: 27px;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.5px;
+  margin-bottom: 12px;
+}
+
+.banner-subtitle {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #475569;
+  margin-bottom: 26px;
+  max-width: 480px;
+}
+
+.banner-btn-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.pill-btn {
+  padding: 10px 24px;
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+}
+
+.btn-outline-white {
+  background-color: #FFFFFF;
+  border: 1.5px solid #CBD5E1;
+  color: var(--primary-blue);
+}
+
+.btn-outline-white:hover {
+  border-color: var(--primary-blue);
+  background-color: #F8FAFD;
+  transform: translateY(-1px);
+}
+
+.banner-right-visual {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+.banner-tutor-frame {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.banner-tutor-img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.banner-floating-badge {
+  position: absolute;
+  top: 50%;
+  right: -10px;
+  transform: translateY(-50%);
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
+}
+
+.banner-badge-icon {
+  width: 34px;
+  height: 34px;
+  background-color: #F5F3FF;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-badge-text {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.25;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.site-footer {
+  background-color: #FFFFFF;
+  border-top: 1px solid #EEF2F6;
+  padding: 48px 0 32px;
+}
+
+.footer-top-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr 1.2fr;
+  gap: 36px;
+}
+
+.footer-logo {
+  margin-bottom: 12px;
+}
+
+.footer-tagline {
+  font-size: 13.5px;
+  color: var(--text-body);
+  max-width: 220px;
+  line-height: 1.5;
+}
+
+.footer-heading {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links a {
+  font-size: 13px;
+  color: #64748B;
+  transition: var(--transition-smooth);
+}
+
+.footer-links a:hover {
+  color: var(--primary-blue);
+  transform: translateX(2px);
+}
+
+/* Social & Legal Column */
+.right-aligned-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.social-links-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.social-icon-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #334155;
+  background-color: #F1F5F9;
+  transition: var(--transition-smooth);
+}
+
+.social-icon-btn:hover {
+  color: #FFFFFF;
+  background-color: var(--primary-blue);
+  transform: translateY(-2px);
+}
+
+.copyright-text {
+  font-size: 12px;
+  color: #94A3B8;
+  margin-bottom: 8px;
+}
+
+.legal-links {
+  font-size: 12px;
+  color: #64748B;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legal-links a:hover {
+  color: var(--primary-blue);
+}
+
+.legal-links .divider {
+  color: #CBD5E1;
+}
+
+/* ==========================================================================
+   Toast Notification
+   ========================================================================== */
+.toast-notification {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: var(--text-dark);
+  color: #FFFFFF;
+  padding: 12px 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1000;
+}
+
+.toast-notification.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast-icon {
+  background-color: var(--success-green);
+  color: #FFFFFF;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 1100px) {
+  .exact-hero-container {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .hero-card-left {
+    max-width: 650px;
+    margin: 0 auto;
+  }
+
+  .hero-visual-right {
+    margin-top: 10px;
+  }
+
+  .pricing-grid,
+  .pricing-grid.coins-plans-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .footer-top-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .right-aligned-col {
+    grid-column: span 3;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 860px) {
+  .nav-links {
+    display: none;
+  }
+
+  .floating-header-wrapper {
+    padding: 0 12px;
+  }
+
+  .floating-nav-pill {
+    padding: 6px 14px;
+  }
+
+  .card-main-title {
+    font-size: 30px;
+  }
+
+  .plan-types-grid,
+  .trust-coins-grid,
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .prefooter-banner-card {
+    grid-template-columns: 1fr;
+    padding: 32px 24px;
+    text-align: center;
+  }
+
+  .banner-btn-group {
+    justify-content: center;
+  }
+
+  .banner-right-visual {
+    justify-content: center;
+  }
+
+  .pricing-header-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .pricing-header-center {
+    text-align: center;
+  }
+
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .right-aligned-col {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 540px) {
+  .pricing-grid,
+  .pricing-grid.coins-plans-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card-cta-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .hero-card-left {
+    padding: 24px 20px;
+  }
+
+  .teacher-main-frame {
+    height: 320px;
+  }
+
+  .stat-active-tutors {
+    top: -16px;
+    left: -10px;
+    padding: 8px 14px;
+  }
+
+  .stat-students-connected {
+    top: -18px;
+    right: 10px;
+    padding: 8px 14px;
+  }
+
+  .stat-number {
+    font-size: 16px;
+  }
+
+  .stat-caption {
+    font-size: 10px;
+  }
+
+  .floating-paper-airplane {
+    display: none;
+  }
+
+  .whiteboard-checklist-glass {
+    display: none;
+  }
+}
