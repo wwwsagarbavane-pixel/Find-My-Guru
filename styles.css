@@ -140,31 +140,22 @@ button {
   text-decoration: none;
 }
 
-.logo-vector-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+.site-brand-logo-img {
+  height: 38px;
+  width: auto;
+  max-width: 140px;
+  display: block;
+  object-fit: contain;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.logo-text-group {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.05;
+.site-brand-logo-img:hover {
+  transform: scale(1.03);
 }
 
-.logo-find {
-  font-size: 15px;
-  font-weight: 900;
-  color: #0A1C3E;
-  letter-spacing: -0.3px;
-}
-
-.logo-myguru {
-  font-size: 15px;
-  font-weight: 900;
-  color: var(--primary-blue);
-  letter-spacing: -0.3px;
+.footer-logo .site-brand-logo-img {
+  height: 36px;
+  max-width: 145px;
 }
 
 .nav-links {
@@ -2176,14 +2167,14 @@ button {
     padding: 6px 12px;
   }
 
-  .logo-find,
-  .logo-myguru {
-    font-size: 15px;
+  .site-brand-logo-img {
+    height: 30px;
+    max-width: 110px;
   }
 
-  .logo-vector-icon svg {
-    width: 26px;
-    height: 26px;
+  .footer-logo .site-brand-logo-img {
+    height: 32px;
+    max-width: 120px;
   }
 
   .btn-tutor-login {
