@@ -12,27 +12,31 @@ document.addEventListener('DOMContentLoaded', () => {
   const toast = document.getElementById('toast');
   const toastMsg = document.getElementById('toast-msg');
 
-  // 1. Toggle Plan Type (Subscription Plan vs Coins Plan)
+  // 1. Toggle Plan Type (Subscription Plan vs Coins Plan) with Butter-Smooth Transitions
   window.switchPlanTab = function(tab) {
     if (tab === 'coins') {
       if (tabCoins) tabCoins.classList.add('active');
       if (tabSubscription) tabSubscription.classList.remove('active');
-      if (coinsGrid) {
-        coinsGrid.style.display = 'grid';
-        coinsGrid.style.opacity = '1';
-      }
       if (subscriptionGrid) {
         subscriptionGrid.style.display = 'none';
+        subscriptionGrid.classList.remove('active-grid-anim');
+      }
+      if (coinsGrid) {
+        coinsGrid.style.display = 'grid';
+        void coinsGrid.offsetWidth;
+        coinsGrid.classList.add('active-grid-anim');
       }
     } else {
       if (tabSubscription) tabSubscription.classList.add('active');
       if (tabCoins) tabCoins.classList.remove('active');
-      if (subscriptionGrid) {
-        subscriptionGrid.style.display = 'grid';
-        subscriptionGrid.style.opacity = '1';
-      }
       if (coinsGrid) {
         coinsGrid.style.display = 'none';
+        coinsGrid.classList.remove('active-grid-anim');
+      }
+      if (subscriptionGrid) {
+        subscriptionGrid.style.display = 'grid';
+        void subscriptionGrid.offsetWidth;
+        subscriptionGrid.classList.add('active-grid-anim');
       }
     }
   };
@@ -44,6 +48,25 @@ document.addEventListener('DOMContentLoaded', () => {
   if (tabCoins) {
     tabCoins.addEventListener('click', () => window.switchPlanTab('coins'));
   }
+
+  // Butter-Smooth Internal Anchor Navigation (Accounts for Floating Pill Navbar)
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href && href.length > 1 && href.startsWith('#')) {
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          const headerOffset = 80;
+          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }
+    });
+  });
 
   // Ensure body scroll is completely free and active
   document.body.style.overflow = '';
