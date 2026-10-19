@@ -755,12 +755,24 @@ button {
   flex-direction: column;
   justify-content: space-between;
   position: relative;
-  transition: var(--transition-smooth);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
 }
 
 .pricing-tier-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 36px -8px rgba(15, 23, 42, 0.08);
+  transform: translateY(-6px);
+  border-color: #93C5FD;
+  box-shadow: 0 20px 40px -10px rgba(0, 132, 255, 0.16);
+}
+
+.pricing-tier-card:active {
+  transform: translateY(-2px);
+}
+
+/* Card Selection State on Click */
+.pricing-tier-card.selected-card {
+  border: 2px solid var(--primary-blue) !important;
+  box-shadow: 0 0 0 4px rgba(0, 132, 255, 0.18), 0 20px 40px -8px rgba(0, 132, 255, 0.22);
 }
 
 /* Popular Pro Card Highlight */
@@ -1910,4 +1922,266 @@ button {
   .whiteboard-checklist-glass {
     display: none;
   }
+}
+
+/* ==========================================================================
+   PLAN ACTIVATION MODAL POPUP (CLICKABLE OPTION)
+   ========================================================================== */
+.plan-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(11, 27, 61, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.28s ease, visibility 0.28s ease;
+}
+
+.plan-modal-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.plan-modal-card {
+  background: #FFFFFF;
+  border-radius: 24px;
+  max-width: 480px;
+  width: 100%;
+  box-shadow: 0 25px 60px -12px rgba(11, 27, 61, 0.35);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  overflow: hidden;
+  transform: scale(0.92) translateY(16px);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.plan-modal-backdrop.active .plan-modal-card {
+  transform: scale(1) translateY(0);
+}
+
+.plan-modal-header {
+  background: linear-gradient(135deg, #0A1C3E 0%, #0084FF 100%);
+  padding: 26px 26px 22px;
+  color: #FFFFFF;
+  position: relative;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  color: #FFFFFF;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: rotate(90deg);
+}
+
+.modal-badge {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.22);
+  color: #FFFFFF;
+  padding: 3px 12px;
+  border-radius: 9999px;
+  margin-bottom: 8px;
+}
+
+.modal-plan-title-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.modal-plan-name {
+  font-size: 24px;
+  font-weight: 850;
+  margin: 0;
+  letter-spacing: -0.5px;
+  color: #FFFFFF;
+}
+
+.modal-plan-price {
+  font-size: 24px;
+  font-weight: 850;
+  color: #93C5FD;
+}
+
+.modal-plan-sub {
+  font-size: 13px;
+  color: #E2E8F0;
+  margin-top: 4px;
+}
+
+.plan-modal-body {
+  padding: 22px 26px 26px;
+}
+
+.modal-highlights-pill {
+  background-color: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 18px;
+}
+
+.modal-highlights-title {
+  font-size: 11.5px;
+  font-weight: 750;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.modal-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.modal-features-list li {
+  font-size: 12.5px;
+  color: #1E293B;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-features-list .check {
+  color: #10B981;
+  font-weight: 800;
+}
+
+.modal-form-group {
+  margin-bottom: 12px;
+}
+
+.modal-form-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: #334155;
+  margin-bottom: 5px;
+}
+
+.modal-input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1.5px solid #CBD5E1;
+  font-size: 13.5px;
+  color: #0F172A;
+  background-color: #FFFFFF;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.modal-input:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(0, 132, 255, 0.15);
+}
+
+.modal-submit-btn {
+  width: 100%;
+  padding: 13px;
+  background-color: var(--primary-blue);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 750;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 132, 255, 0.3);
+  transition: background 0.2s ease, transform 0.2s ease;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.modal-submit-btn:hover {
+  background-color: var(--primary-blue-hover);
+  transform: translateY(-1px);
+}
+
+.modal-trust-note {
+  text-align: center;
+  font-size: 11px;
+  color: #64748B;
+  margin-top: 10px;
+}
+
+/* Success State in Modal */
+.modal-success-state {
+  text-align: center;
+  padding: 24px 10px;
+  display: none;
+}
+
+.modal-success-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #DCFCE7;
+  color: #16A34A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  font-weight: 800;
+  margin: 0 auto 14px;
+  box-shadow: 0 6px 18px rgba(22, 163, 74, 0.2);
+}
+
+.modal-success-title {
+  font-size: 20px;
+  font-weight: 850;
+  color: #0F172A;
+  margin-bottom: 8px;
+}
+
+.modal-success-desc {
+  font-size: 13.5px;
+  color: #475569;
+  line-height: 1.5;
+  max-width: 360px;
+  margin: 0 auto 18px;
+}
+
+.modal-done-btn {
+  padding: 10px 26px;
+  background-color: var(--primary-blue);
+  color: #FFFFFF;
+  border-radius: 9999px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
 }
