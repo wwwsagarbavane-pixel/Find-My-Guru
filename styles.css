@@ -1957,33 +1957,144 @@ button {
     height: 15px;
   }
 
-  /* Hero Section */
+  /* Hero Section: Image Upper & Proper Clean Layout */
   .invest-hero-section {
-    padding: 16px 0 32px;
+    padding: 16px 0 28px;
   }
 
   .invest-hero-container {
-    grid-template-columns: 1fr;
-    gap: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
   }
 
   .invest-hero-left {
-    text-align: center;
-    align-items: center;
+    display: contents; /* Reorders items cleanly on mobile */
+  }
+
+  .pricing-pill-badge {
+    order: 1;
+    margin-bottom: 4px;
   }
 
   .invest-hero-title {
-    font-size: 30px;
-    line-height: 1.25;
+    order: 2;
+    font-size: 28px;
+    line-height: 1.22;
     letter-spacing: -0.5px;
+    text-align: center;
   }
 
   .invest-hero-description {
-    font-size: 14.5px;
+    order: 3;
+    font-size: 14px;
     line-height: 1.5;
+    text-align: center;
+    margin-bottom: 4px;
+  }
+
+  .invest-hero-right {
+    order: 4; /* HERO IMAGE MOVED TO UPPER SECTION */
+    width: 100%;
+    margin: 6px 0 14px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  .invest-image-wrapper {
+    position: relative;
+    max-width: 330px;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 24px;
+  }
+
+  .invest-tutor-img {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    aspect-ratio: 4 / 3;
+    border-radius: 24px;
+    object-fit: cover;
+    object-position: center 25%;
+    display: block;
+    box-shadow: 0 16px 36px -8px rgba(15, 23, 42, 0.16);
+  }
+
+  /* Badge 1: Teach Grow Earn (Top-Left, compact) */
+  .invest-floating-badge.badge-teach-grow {
+    top: -10px !important;
+    left: -4px !important;
+    bottom: auto !important;
+    right: auto !important;
+    padding: 6px 11px !important;
+    border-radius: 12px !important;
+    gap: 8px !important;
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.14) !important;
+  }
+
+  .invest-floating-badge.badge-teach-grow .badge-icon-sq {
+    width: 26px !important;
+    height: 26px !important;
+    border-radius: 8px !important;
+  }
+
+  .invest-floating-badge.badge-teach-grow .badge-icon-sq svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+
+  .invest-floating-badge.badge-teach-grow .badge-stacked-text {
+    font-size: 10.5px !important;
+    line-height: 1.15 !important;
+  }
+
+  /* Badge 2: Join thousands of tutors (Bottom-Right, sleek pill - NEVER stretching!) */
+  .invest-floating-badge.badge-join-tutors {
+    top: auto !important;
+    bottom: -10px !important;
+    right: -4px !important;
+    left: auto !important;
+    padding: 5px 12px !important;
+    border-radius: 9999px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    height: auto !important;
+    background: rgba(255, 255, 255, 0.96) !important;
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.15) !important;
+  }
+
+  .invest-floating-badge.badge-join-tutors .badge-avatars-row {
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .invest-floating-badge.badge-join-tutors .avatar-sm {
+    width: 22px !important;
+    height: 22px !important;
+    margin-left: -6px !important;
+    border-width: 1.5px !important;
+  }
+
+  .invest-floating-badge.badge-join-tutors .avatar-sm:first-child {
+    margin-left: 0 !important;
+  }
+
+  .invest-floating-badge.badge-join-tutors .join-title {
+    font-size: 10.5px !important;
+    font-weight: 700 !important;
+  }
+
+  .invest-floating-badge.badge-join-tutors .join-sub {
+    font-size: 9.5px !important;
+    font-weight: 500 !important;
   }
 
   .invest-features-row {
+    order: 5;
     justify-content: center;
     flex-direction: column;
     width: 100%;
@@ -1997,30 +2108,15 @@ button {
   }
 
   .invest-cta-wrap {
+    order: 6;
     width: 100%;
+    margin-top: 4px;
   }
 
   .btn-invest-view-plans {
     width: 100%;
     justify-content: center;
     box-sizing: border-box;
-  }
-
-  .invest-image-wrapper {
-    max-width: 340px;
-    margin: 0 auto;
-  }
-
-  .invest-floating-badge.badge-teach-grow {
-    top: -10px;
-    left: -6px;
-    padding: 6px 10px;
-  }
-
-  .invest-floating-badge.badge-join-tutors {
-    bottom: 10px;
-    right: -6px;
-    padding: 6px 10px;
   }
 
   /* Dual Plan Overview Cards */
@@ -2193,6 +2289,10 @@ button {
 @media (max-width: 380px) {
   .invest-hero-title {
     font-size: 26px;
+  }
+
+  .invest-image-wrapper {
+    max-width: 290px;
   }
 
   .section-heading {
