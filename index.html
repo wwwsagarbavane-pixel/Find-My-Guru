@@ -310,7 +310,7 @@
         <div class="pricing-grid subscription-plans-grid" id="subscription-plans-grid" style="display: grid;">
           
           <!-- Card 1: Starter Plan -->
-          <div class="pricing-tier-card" id="card-starter" data-plan-name="Starter Plan" data-plan-price="Free" data-plan-type="Subscription Plan" onclick="openPlanModal(this)">
+          <div class="pricing-tier-card" id="card-starter" data-plan-name="Starter Plan" data-plan-price="Free" data-plan-type="Subscription Plan" onclick="selectPlanCard(this)">
             <div>
               <div class="tier-header-row">
                 <div class="tier-icon-circle blue-icon-circle">
@@ -343,11 +343,11 @@
               </ul>
             </div>
 
-            <button class="tier-btn btn-outline" id="btn-tier-starter" onclick="openPlanModal(this.closest('.pricing-tier-card')); event.stopPropagation();">Get Started</button>
+            <button class="tier-btn btn-outline" id="btn-tier-starter" onclick="selectPlanCard(this.closest('.pricing-tier-card')); event.stopPropagation();">Get Started</button>
           </div>
 
           <!-- Card 2: Growth Plan -->
-          <div class="pricing-tier-card" id="card-growth" data-plan-name="Growth Plan" data-plan-price="₹3,499" data-plan-type="Subscription Plan" onclick="openPlanModal(this)">
+          <div class="pricing-tier-card" id="card-growth" data-plan-name="Growth Plan" data-plan-price="₹3,499" data-plan-type="Subscription Plan" onclick="selectPlanCard(this)">
             <div>
               <div class="tier-header-row">
                 <div class="tier-icon-circle green-icon-circle">
@@ -389,11 +389,11 @@
               </ul>
             </div>
 
-            <button class="tier-btn btn-soft" id="btn-tier-growth" onclick="openPlanModal(this.closest('.pricing-tier-card')); event.stopPropagation();">Upgrade Plan</button>
+            <button class="tier-btn btn-soft" id="btn-tier-growth" onclick="selectPlanCard(this.closest('.pricing-tier-card')); event.stopPropagation();">Upgrade Plan</button>
           </div>
 
           <!-- Card 3: Pro Plan (Most Popular) -->
-          <div class="pricing-tier-card popular-card" id="card-pro" data-plan-name="Pro Plan" data-plan-price="₹5,999" data-plan-type="Subscription Plan" onclick="openPlanModal(this)">
+          <div class="pricing-tier-card popular-card selected-card" id="card-pro" data-plan-name="Pro Plan" data-plan-price="₹5,999" data-plan-type="Subscription Plan" onclick="selectPlanCard(this)">
             <div class="popular-ribbon">Most Popular</div>
 
             <div>
@@ -440,11 +440,11 @@
               </ul>
             </div>
 
-            <button class="tier-btn btn-solid-blue" id="btn-tier-pro" onclick="openPlanModal(this.closest('.pricing-tier-card')); event.stopPropagation();">Upgrade Plan</button>
+            <button class="tier-btn btn-solid-blue" id="btn-tier-pro" onclick="selectPlanCard(this.closest('.pricing-tier-card')); event.stopPropagation();">Upgrade Plan</button>
           </div>
 
           <!-- Card 4: Elite Plan -->
-          <div class="pricing-tier-card" id="card-elite" data-plan-name="Elite Plan" data-plan-price="₹9,999" data-plan-type="Subscription Plan" onclick="openPlanModal(this)">
+          <div class="pricing-tier-card" id="card-elite" data-plan-name="Elite Plan" data-plan-price="₹9,999" data-plan-type="Subscription Plan" onclick="selectPlanCard(this)">
             <div>
               <div class="tier-header-row">
                 <div class="tier-icon-circle gold-icon-circle">
@@ -494,7 +494,7 @@
               </ul>
             </div>
 
-            <button class="tier-btn btn-outline" id="btn-tier-elite" onclick="openPlanModal(this.closest('.pricing-tier-card')); event.stopPropagation();">Upgrade Plan</button>
+            <button class="tier-btn btn-outline" id="btn-tier-elite" onclick="selectPlanCard(this.closest('.pricing-tier-card')); event.stopPropagation();">Upgrade Plan</button>
           </div>
 
         </div>
@@ -503,7 +503,7 @@
         <div class="pricing-grid coins-plans-grid" id="coins-plans-grid" style="display: none;">
           
           <!-- Coins Card 1: Starter Plan -->
-          <div class="pricing-tier-card" id="coins-card-starter" data-plan-name="Coins Starter Plan" data-plan-price="₹500 - 1,000 / INR" data-plan-type="Coins Recharge" onclick="openPlanModal(this)">
+          <div class="pricing-tier-card" id="coins-card-starter" data-plan-name="Coins Starter Plan" data-plan-price="₹500 - 1,000 / INR" data-plan-type="Coins Recharge" onclick="selectPlanCard(this)">
             <div>
               <div class="plan-tag-badge">Coins Plan</div>
 
@@ -548,11 +548,11 @@
               </ul>
             </div>
 
-            <button class="tier-btn btn-outline" id="btn-coins-starter" onclick="openPlanModal(this.closest('.pricing-tier-card')); event.stopPropagation();">Recharge Now</button>
+            <button class="tier-btn btn-outline" id="btn-coins-starter" onclick="selectPlanCard(this.closest('.pricing-tier-card')); event.stopPropagation();">Recharge Now</button>
           </div>
 
           <!-- Coins Card 2: Growth Plan -->
-          <div class="pricing-tier-card popular-card" id="coins-card-growth" data-plan-name="Coins Growth Plan" data-plan-price="₹1,001 - 3,000 / INR" data-plan-type="Coins Recharge" onclick="openPlanModal(this)">
+          <div class="pricing-tier-card popular-card selected-card" id="coins-card-growth" data-plan-name="Coins Growth Plan" data-plan-price="₹1,001 - 3,000 / INR" data-plan-type="Coins Recharge" onclick="selectPlanCard(this)">
             <div class="popular-ribbon">Most Popular</div>
 
             <div>
@@ -599,11 +599,11 @@
               </ul>
             </div>
 
-            <button class="tier-btn btn-solid-blue" id="btn-coins-growth" onclick="openPlanModal(this.closest('.pricing-tier-card')); event.stopPropagation();">Recharge Now</button>
+            <button class="tier-btn btn-solid-blue" id="btn-coins-growth" onclick="selectPlanCard(this.closest('.pricing-tier-card')); event.stopPropagation();">Recharge Now</button>
           </div>
 
           <!-- Coins Card 3: Power Plan -->
-          <div class="pricing-tier-card" id="coins-card-power" data-plan-name="Coins Power Plan" data-plan-price="₹3,001 - 10,000 / INR" data-plan-type="Coins Recharge" onclick="openPlanModal(this)">
+          <div class="pricing-tier-card" id="coins-card-power" data-plan-name="Coins Power Plan" data-plan-price="₹3,001 - 10,000 / INR" data-plan-type="Coins Recharge" onclick="selectPlanCard(this)">
             <div>
               <div class="plan-tag-badge">Coins Plan</div>
 
@@ -649,7 +649,7 @@
               </ul>
             </div>
 
-            <button class="tier-btn btn-outline" id="btn-coins-power" onclick="openPlanModal(this.closest('.pricing-tier-card')); event.stopPropagation();">Recharge Now</button>
+            <button class="tier-btn btn-outline" id="btn-coins-power" onclick="selectPlanCard(this.closest('.pricing-tier-card')); event.stopPropagation();">Recharge Now</button>
           </div>
 
         </div>
@@ -1135,68 +1135,6 @@
     </div>
   </div>
 
-  <!-- PLAN SELECTION / ACTIVATION MODAL -->
-  <div class="plan-modal-backdrop" id="plan-modal" role="dialog" aria-modal="true" aria-hidden="true" onclick="if(event.target === this) closePlanModal();">
-    <div class="plan-modal-card">
-      
-      <!-- Modal Header -->
-      <div class="plan-modal-header">
-        <button class="modal-close-btn" id="modal-close-btn" aria-label="Close modal" onclick="closePlanModal()">✕</button>
-        <span class="modal-badge" id="modal-plan-badge">SUBSCRIPTION PLAN</span>
-        <div class="modal-plan-title-row">
-          <h3 class="modal-plan-name" id="modal-plan-name">Pro Plan</h3>
-          <span class="modal-plan-price" id="modal-plan-price">₹5,999</span>
-        </div>
-        <p class="modal-plan-sub" id="modal-plan-sub">Instant 1-step activation for your tutor account</p>
-      </div>
-
-      <!-- Modal Body (Form State) -->
-      <div class="plan-modal-body" id="modal-form-view">
-        <div class="modal-highlights-pill">
-          <div class="modal-highlights-title">What's included in this plan:</div>
-          <ul class="modal-features-list" id="modal-features-summary">
-            <!-- Dynamically populated from clicked card -->
-          </ul>
-        </div>
-
-        <form id="plan-activation-form" onsubmit="handlePlanSubmit(event)">
-          <div class="modal-form-group">
-            <label class="modal-form-label" for="tutor-name">Your Full Name *</label>
-            <input type="text" id="tutor-name" class="modal-input" placeholder="e.g. Ramesh Sharma" required>
-          </div>
-
-          <div class="modal-form-group">
-            <label class="modal-form-label" for="tutor-phone">WhatsApp / Phone Number *</label>
-            <input type="tel" id="tutor-phone" class="modal-input" placeholder="e.g. +91 98765 43210" required>
-          </div>
-
-          <div class="modal-form-group">
-            <label class="modal-form-label" for="tutor-subject">Subject You Teach &amp; City</label>
-            <input type="text" id="tutor-subject" class="modal-input" placeholder="e.g. Mathematics, Mumbai">
-          </div>
-
-          <button type="submit" class="modal-submit-btn" id="modal-confirm-btn">
-            <span>Confirm &amp; Activate Plan</span>
-            <span>→</span>
-          </button>
-        </form>
-
-        <p class="modal-trust-note">🔒 100% Secure • Official FindMyGuru Tutor Guarantee</p>
-      </div>
-
-      <!-- Modal Success View -->
-      <div class="modal-success-state" id="modal-success-view">
-        <div class="modal-success-icon">✓</div>
-        <h3 class="modal-success-title">Plan Request Received!</h3>
-        <p class="modal-success-desc" id="modal-success-message">
-          Thank you! Your plan activation request has been submitted. Our onboarding team will connect with you on WhatsApp within 15 minutes.
-        </p>
-        <button class="modal-done-btn" onclick="closePlanModal()">Done</button>
-      </div>
-
-    </div>
-  </div>
-
   <script>
     function switchPlanTab(tab) {
       var subBtn = document.getElementById('tab-subscription');
@@ -1217,72 +1155,15 @@
       }
     }
 
-    function openPlanModal(cardElement) {
+    function selectPlanCard(cardElement) {
       if (!cardElement) return;
-      var modal = document.getElementById('plan-modal');
-      if (!modal) return;
-
-      var name = cardElement.getAttribute('data-plan-name') || cardElement.querySelector('.tier-name').textContent.trim();
-      var priceEl = cardElement.querySelector('.price-value');
-      var currencyEl = cardElement.querySelector('.currency');
-      var priceText = (currencyEl ? currencyEl.textContent.trim() : '') + (priceEl ? priceEl.textContent.trim() : '');
-      var type = cardElement.getAttribute('data-plan-type') || 'Subscription Plan';
-
-      document.getElementById('modal-plan-name').textContent = name;
-      document.getElementById('modal-plan-price').textContent = priceText;
-      document.getElementById('modal-plan-badge').textContent = type.toUpperCase();
-
-      // Highlight active card
-      document.querySelectorAll('.pricing-tier-card').forEach(function(c) {
+      var parentGrid = cardElement.closest('.pricing-grid') || document;
+      parentGrid.querySelectorAll('.pricing-tier-card').forEach(function(c) {
         c.classList.remove('selected-card');
       });
       cardElement.classList.add('selected-card');
-
-      // Populate features
-      var featuresList = document.getElementById('modal-features-summary');
-      featuresList.innerHTML = '';
-      var featureItems = cardElement.querySelectorAll('.tier-features li');
-      featureItems.forEach(function(item) {
-        var li = document.createElement('li');
-        li.innerHTML = '<span class="check">✓</span> <span>' + item.textContent.replace('✓', '').trim() + '</span>';
-        featuresList.appendChild(li);
-      });
-
-      // Reset to form view
-      document.getElementById('modal-form-view').style.display = 'block';
-      document.getElementById('modal-success-view').style.display = 'none';
-
-      modal.classList.add('active');
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
     }
-
-    function closePlanModal() {
-      var modal = document.getElementById('plan-modal');
-      if (modal) {
-        modal.classList.remove('active');
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-      }
-    }
-
-    function handlePlanSubmit(e) {
-      e.preventDefault();
-      var nameInput = document.getElementById('tutor-name');
-      var planName = document.getElementById('modal-plan-name').textContent;
-      var tutorName = nameInput && nameInput.value.trim() ? nameInput.value.trim() : 'Tutor';
-      
-      var msg = 'Thank you, ' + tutorName + '! Your request for ' + planName + ' has been received. Our tutor onboarding specialist will contact you on WhatsApp within 15 minutes.';
-      document.getElementById('modal-success-message').textContent = msg;
-      document.getElementById('modal-form-view').style.display = 'none';
-      document.getElementById('modal-success-view').style.display = 'block';
-    }
-
-    // Close modal on Escape key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') closePlanModal();
-    });
   </script>
-  <script src="app.js?v=modal_interactive_v4"></script>
+  <script src="app.js?v=card_outline_v5"></script>
 </body>
 </html>

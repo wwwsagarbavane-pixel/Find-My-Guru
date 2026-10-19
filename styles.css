@@ -40,6 +40,7 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -748,7 +749,7 @@ button {
 
 .pricing-tier-card {
   background-color: var(--card-bg);
-  border: 1px solid var(--border-card);
+  border: 1.5px solid #E2E8F0;
   border-radius: 20px;
   padding: 28px 20px 24px;
   display: flex;
@@ -757,29 +758,52 @@ button {
   position: relative;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
+  user-select: none;
 }
 
 .pricing-tier-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-4px);
   border-color: #93C5FD;
-  box-shadow: 0 20px 40px -10px rgba(0, 132, 255, 0.16);
+  box-shadow: 0 16px 36px -8px rgba(0, 132, 255, 0.12);
 }
 
 .pricing-tier-card:active {
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
-/* Card Selection State on Click */
+/* Card Selection State on Click (Outline changes, old one removed, no popup) */
 .pricing-tier-card.selected-card {
-  border: 2px solid var(--primary-blue) !important;
-  box-shadow: 0 0 0 4px rgba(0, 132, 255, 0.18), 0 20px 40px -8px rgba(0, 132, 255, 0.22);
+  border: 2.5px solid var(--primary-blue) !important;
+  box-shadow: 0 0 0 3.5px rgba(0, 132, 255, 0.18), 0 16px 36px -8px rgba(0, 132, 255, 0.22) !important;
+  transform: translateY(-4px);
+  z-index: 3;
 }
 
-/* Popular Pro Card Highlight */
+.pricing-tier-card.selected-card .tier-btn {
+  background-color: var(--primary-blue) !important;
+  color: #FFFFFF !important;
+  border-color: var(--primary-blue) !important;
+  box-shadow: 0 4px 14px rgba(0, 132, 255, 0.3) !important;
+}
+
+/* When a card is not selected, its button remains clean and balanced */
+.pricing-tier-card:not(.selected-card) .tier-btn.btn-solid-blue {
+  background-color: #F8FAFC !important;
+  color: var(--primary-blue) !important;
+  border: 1.5px solid #CBD5E1 !important;
+  box-shadow: none !important;
+}
+
+/* Popular Pro Card Highlight (when NOT selected, normal clean border) */
 .pricing-tier-card.popular-card {
-  border: 2px solid var(--primary-blue);
-  box-shadow: 0 14px 38px -6px rgba(0, 132, 255, 0.16);
+  border: 1.5px solid #CBD5E1;
+  box-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.05);
   z-index: 2;
+}
+
+.pricing-tier-card.popular-card.selected-card {
+  border: 2.5px solid var(--primary-blue) !important;
+  box-shadow: 0 0 0 3.5px rgba(0, 132, 255, 0.18), 0 16px 36px -8px rgba(0, 132, 255, 0.22) !important;
 }
 
 .popular-ribbon {
@@ -1817,33 +1841,42 @@ button {
   }
 }
 
+/* ==========================================================================
+   MOBILE & TABLET RESPONSIVE ENHANCEMENTS
+   ========================================================================== */
+
 @media (max-width: 860px) {
   .nav-links {
     display: none;
   }
 
   .floating-header-wrapper {
-    padding: 0 12px;
+    padding: 10px 14px 0;
+    margin-bottom: 20px;
   }
 
   .floating-nav-pill {
     padding: 6px 14px;
-  }
-
-  .card-main-title {
-    font-size: 30px;
+    height: 58px;
   }
 
   .plan-types-grid,
   .trust-coins-grid,
   .faq-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .coins-guide-container {
+    grid-template-columns: 1fr;
+    gap: 36px;
   }
 
   .prefooter-banner-card {
     grid-template-columns: 1fr;
     padding: 32px 24px;
     text-align: center;
+    gap: 24px;
   }
 
   .banner-btn-group {
@@ -1857,8 +1890,9 @@ button {
   .pricing-header-row {
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 18px;
     text-align: center;
+    margin-bottom: 28px;
   }
 
   .pricing-header-center {
@@ -1868,320 +1902,313 @@ button {
   .footer-top-grid {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 28px;
   }
 
   .right-aligned-col {
     grid-column: span 1;
+    align-items: center;
+    text-align: center;
+  }
+
+  .social-links-row {
+    justify-content: center;
+  }
+
+  .legal-links {
+    justify-content: center;
   }
 }
 
-@media (max-width: 540px) {
+@media (max-width: 640px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  /* Navbar */
+  .floating-header-wrapper {
+    padding: 8px 10px 0;
+    margin-bottom: 14px;
+  }
+
+  .floating-nav-pill {
+    height: 52px;
+    padding: 6px 12px;
+  }
+
+  .logo-find,
+  .logo-myguru {
+    font-size: 15px;
+  }
+
+  .logo-vector-icon svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .btn-tutor-login {
+    padding: 7px 14px;
+    font-size: 12.5px;
+    gap: 6px;
+  }
+
+  .btn-tutor-login svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  /* Hero Section */
+  .invest-hero-section {
+    padding: 16px 0 32px;
+  }
+
+  .invest-hero-container {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .invest-hero-left {
+    text-align: center;
+    align-items: center;
+  }
+
+  .invest-hero-title {
+    font-size: 30px;
+    line-height: 1.25;
+    letter-spacing: -0.5px;
+  }
+
+  .invest-hero-description {
+    font-size: 14.5px;
+    line-height: 1.5;
+  }
+
+  .invest-features-row {
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .invest-feat-card {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 10px 14px;
+  }
+
+  .invest-cta-wrap {
+    width: 100%;
+  }
+
+  .btn-invest-view-plans {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .invest-image-wrapper {
+    max-width: 340px;
+    margin: 0 auto;
+  }
+
+  .invest-floating-badge.badge-teach-grow {
+    top: -10px;
+    left: -6px;
+    padding: 6px 10px;
+  }
+
+  .invest-floating-badge.badge-join-tutors {
+    bottom: 10px;
+    right: -6px;
+    padding: 6px 10px;
+  }
+
+  /* Dual Plan Overview Cards */
+  .plan-types-section {
+    padding: 20px 0 28px;
+  }
+
+  .plan-overview-card {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+
+  .plan-card-header {
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .plan-card-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .plan-card-title {
+    font-size: 17px;
+  }
+
+  .plan-card-subtitle {
+    font-size: 12.5px;
+  }
+
+  .plan-features-two-col {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  /* Pricing Section & Tab Toggle */
+  .pricing-plans-section {
+    padding: 28px 0 36px;
+  }
+
+  .section-heading {
+    font-size: 25px;
+    line-height: 1.25;
+  }
+
+  .section-subheading {
+    font-size: 13.5px;
+  }
+
+  .plan-tab-toggle-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .plan-tab-toggle {
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .tab-toggle-btn {
+    flex: 1;
+    text-align: center;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  /* Pricing Cards Grid */
   .pricing-grid,
   .pricing-grid.coins-plans-grid {
     grid-template-columns: 1fr;
-  }
-
-  .card-cta-row {
-    flex-direction: column;
-    align-items: flex-start;
     gap: 16px;
   }
 
-  .hero-card-left {
-    padding: 24px 20px;
+  .pricing-tier-card {
+    padding: 22px 16px 18px;
+    border-radius: 18px;
   }
 
-  .teacher-main-frame {
-    height: 320px;
+  .pricing-tier-card.selected-card {
+    transform: translateY(-2px);
   }
 
-  .stat-active-tutors {
-    top: -16px;
-    left: -10px;
-    padding: 8px 14px;
+  .tier-header-row {
+    gap: 12px;
+    margin-bottom: 14px;
   }
 
-  .stat-students-connected {
-    top: -18px;
-    right: 10px;
-    padding: 8px 14px;
+  .tier-icon-circle {
+    width: 40px;
+    height: 40px;
   }
 
-  .stat-number {
-    font-size: 16px;
+  .tier-name {
+    font-size: 18px;
   }
 
-  .stat-caption {
-    font-size: 10px;
+  .tier-pricing {
+    margin-bottom: 16px;
+    padding-bottom: 14px;
   }
 
-  .floating-paper-airplane {
-    display: none;
+  .tier-pricing .price-value {
+    font-size: 32px;
   }
 
-  .whiteboard-checklist-glass {
-    display: none;
+  .coins-plans-grid .price-value {
+    font-size: 25px;
+  }
+
+  .tier-features {
+    gap: 11px;
+    margin-bottom: 20px;
+  }
+
+  .feature-item {
+    font-size: 13px;
+  }
+
+  .tier-btn {
+    padding: 12px 16px;
+    font-size: 14px;
+    border-radius: 10px;
+  }
+
+  /* Coins Guide Steps */
+  .coins-step-card {
+    padding: 18px 16px;
+  }
+
+  /* FAQ Accordion */
+  .faq-question {
+    padding: 14px 16px;
+    font-size: 14px;
+  }
+
+  .faq-answer {
+    padding: 0 16px 14px;
+    font-size: 13px;
+  }
+
+  /* Prefooter Banner */
+  .prefooter-banner-card {
+    padding: 24px 16px;
+  }
+
+  .banner-title {
+    font-size: 22px;
+  }
+
+  .banner-subtitle {
+    font-size: 13.5px;
+  }
+
+  .banner-btn-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .banner-btn-group .pill-btn {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
   }
 }
 
-/* ==========================================================================
-   PLAN ACTIVATION MODAL POPUP (CLICKABLE OPTION)
-   ========================================================================== */
-.plan-modal-backdrop {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(11, 27, 61, 0.65);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.28s ease, visibility 0.28s ease;
-}
+@media (max-width: 380px) {
+  .invest-hero-title {
+    font-size: 26px;
+  }
 
-.plan-modal-backdrop.active {
-  opacity: 1;
-  visibility: visible;
-}
+  .section-heading {
+    font-size: 22px;
+  }
 
-.plan-modal-card {
-  background: #FFFFFF;
-  border-radius: 24px;
-  max-width: 480px;
-  width: 100%;
-  box-shadow: 0 25px 60px -12px rgba(11, 27, 61, 0.35);
-  border: 1px solid rgba(226, 232, 240, 0.9);
-  overflow: hidden;
-  transform: scale(0.92) translateY(16px);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  position: relative;
-}
+  .tab-toggle-btn {
+    font-size: 12px;
+    padding: 7px 8px;
+  }
 
-.plan-modal-backdrop.active .plan-modal-card {
-  transform: scale(1) translateY(0);
-}
+  .tier-pricing .price-value {
+    font-size: 28px;
+  }
 
-.plan-modal-header {
-  background: linear-gradient(135deg, #0A1C3E 0%, #0084FF 100%);
-  padding: 26px 26px 22px;
-  color: #FFFFFF;
-  position: relative;
-}
-
-.modal-close-btn {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.18);
-  color: #FFFFFF;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  border: none;
-  transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.modal-close-btn:hover {
-  background: rgba(255, 255, 255, 0.35);
-  transform: rotate(90deg);
-}
-
-.modal-badge {
-  display: inline-block;
-  font-size: 10.5px;
-  font-weight: 800;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-  background: rgba(255, 255, 255, 0.22);
-  color: #FFFFFF;
-  padding: 3px 12px;
-  border-radius: 9999px;
-  margin-bottom: 8px;
-}
-
-.modal-plan-title-row {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.modal-plan-name {
-  font-size: 24px;
-  font-weight: 850;
-  margin: 0;
-  letter-spacing: -0.5px;
-  color: #FFFFFF;
-}
-
-.modal-plan-price {
-  font-size: 24px;
-  font-weight: 850;
-  color: #93C5FD;
-}
-
-.modal-plan-sub {
-  font-size: 13px;
-  color: #E2E8F0;
-  margin-top: 4px;
-}
-
-.plan-modal-body {
-  padding: 22px 26px 26px;
-}
-
-.modal-highlights-pill {
-  background-color: #F8FAFC;
-  border: 1px solid #E2E8F0;
-  border-radius: 12px;
-  padding: 12px 14px;
-  margin-bottom: 18px;
-}
-
-.modal-highlights-title {
-  font-size: 11.5px;
-  font-weight: 750;
-  color: #475569;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 6px;
-}
-
-.modal-features-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.modal-features-list li {
-  font-size: 12.5px;
-  color: #1E293B;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.modal-features-list .check {
-  color: #10B981;
-  font-weight: 800;
-}
-
-.modal-form-group {
-  margin-bottom: 12px;
-}
-
-.modal-form-label {
-  display: block;
-  font-size: 12px;
-  font-weight: 700;
-  color: #334155;
-  margin-bottom: 5px;
-}
-
-.modal-input {
-  width: 100%;
-  padding: 10px 14px;
-  border-radius: 10px;
-  border: 1.5px solid #CBD5E1;
-  font-size: 13.5px;
-  color: #0F172A;
-  background-color: #FFFFFF;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  box-sizing: border-box;
-}
-
-.modal-input:focus {
-  outline: none;
-  border-color: var(--primary-blue);
-  box-shadow: 0 0 0 3px rgba(0, 132, 255, 0.15);
-}
-
-.modal-submit-btn {
-  width: 100%;
-  padding: 13px;
-  background-color: var(--primary-blue);
-  color: #FFFFFF;
-  border: none;
-  border-radius: 12px;
-  font-size: 15px;
-  font-weight: 750;
-  cursor: pointer;
-  box-shadow: 0 4px 14px rgba(0, 132, 255, 0.3);
-  transition: background 0.2s ease, transform 0.2s ease;
-  margin-top: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.modal-submit-btn:hover {
-  background-color: var(--primary-blue-hover);
-  transform: translateY(-1px);
-}
-
-.modal-trust-note {
-  text-align: center;
-  font-size: 11px;
-  color: #64748B;
-  margin-top: 10px;
-}
-
-/* Success State in Modal */
-.modal-success-state {
-  text-align: center;
-  padding: 24px 10px;
-  display: none;
-}
-
-.modal-success-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background-color: #DCFCE7;
-  color: #16A34A;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 26px;
-  font-weight: 800;
-  margin: 0 auto 14px;
-  box-shadow: 0 6px 18px rgba(22, 163, 74, 0.2);
-}
-
-.modal-success-title {
-  font-size: 20px;
-  font-weight: 850;
-  color: #0F172A;
-  margin-bottom: 8px;
-}
-
-.modal-success-desc {
-  font-size: 13.5px;
-  color: #475569;
-  line-height: 1.5;
-  max-width: 360px;
-  margin: 0 auto 18px;
-}
-
-.modal-done-btn {
-  padding: 10px 26px;
-  background-color: var(--primary-blue);
-  color: #FFFFFF;
-  border-radius: 9999px;
-  font-weight: 700;
-  border: none;
-  cursor: pointer;
+  .coins-plans-grid .price-value {
+    font-size: 22px;
+  }
 }

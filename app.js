@@ -45,83 +45,18 @@ document.addEventListener('DOMContentLoaded', () => {
     tabCoins.addEventListener('click', () => window.switchPlanTab('coins'));
   }
 
-  // 2. Plan Selection / Activation Modal
-  window.openPlanModal = function(cardElement) {
+  // Ensure body scroll is completely free and active
+  document.body.style.overflow = '';
+
+  // 2. Plan Selection (Outline changes, old one removed, no popup, pure scroll freedom)
+  window.selectPlanCard = function(cardElement) {
     if (!cardElement) return;
-    const modal = document.getElementById('plan-modal');
-    if (!modal) return;
-
-    const name = cardElement.getAttribute('data-plan-name') || cardElement.querySelector('.tier-name').textContent.trim();
-    const priceEl = cardElement.querySelector('.price-value');
-    const currencyEl = cardElement.querySelector('.currency');
-    const priceText = (currencyEl ? currencyEl.textContent.trim() : '') + (priceEl ? priceEl.textContent.trim() : '');
-    const type = cardElement.getAttribute('data-plan-type') || 'Subscription Plan';
-
-    const modalName = document.getElementById('modal-plan-name');
-    const modalPrice = document.getElementById('modal-plan-price');
-    const modalBadge = document.getElementById('modal-plan-badge');
-
-    if (modalName) modalName.textContent = name;
-    if (modalPrice) modalPrice.textContent = priceText;
-    if (modalBadge) modalBadge.textContent = type.toUpperCase();
-
-    // Highlight active card
-    document.querySelectorAll('.pricing-tier-card').forEach(c => c.classList.remove('selected-card'));
+    const parentGrid = cardElement.closest('.pricing-grid') || document;
+    parentGrid.querySelectorAll('.pricing-tier-card').forEach(c => {
+      c.classList.remove('selected-card');
+    });
     cardElement.classList.add('selected-card');
-
-    // Populate features
-    const featuresList = document.getElementById('modal-features-summary');
-    if (featuresList) {
-      featuresList.innerHTML = '';
-      const featureItems = cardElement.querySelectorAll('.tier-features li');
-      featureItems.forEach(item => {
-        const li = document.createElement('li');
-        li.innerHTML = '<span class="check">✓</span> <span>' + item.textContent.replace('✓', '').trim() + '</span>';
-        featuresList.appendChild(li);
-      });
-    }
-
-    // Reset views
-    const formView = document.getElementById('modal-form-view');
-    const successView = document.getElementById('modal-success-view');
-    if (formView) formView.style.display = 'block';
-    if (successView) successView.style.display = 'none';
-
-    modal.classList.add('active');
-    modal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
   };
-
-  window.closePlanModal = function() {
-    const modal = document.getElementById('plan-modal');
-    if (modal) {
-      modal.classList.remove('active');
-      modal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
-  };
-
-  window.handlePlanSubmit = function(e) {
-    if (e) e.preventDefault();
-    const nameInput = document.getElementById('tutor-name');
-    const planNameEl = document.getElementById('modal-plan-name');
-    const planName = planNameEl ? planNameEl.textContent : 'Plan';
-    const tutorName = nameInput && nameInput.value.trim() ? nameInput.value.trim() : 'Tutor';
-
-    const msg = `Thank you, ${tutorName}! Your request for ${planName} has been received. Our tutor onboarding specialist will contact you on WhatsApp within 15 minutes.`;
-    const successMsg = document.getElementById('modal-success-message');
-    if (successMsg) successMsg.textContent = msg;
-
-    const formView = document.getElementById('modal-form-view');
-    const successView = document.getElementById('modal-success-view');
-    if (formView) formView.style.display = 'none';
-    if (successView) successView.style.display = 'block';
-  };
-
-  // Close modal on escape
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') window.closePlanModal();
-  });
 
   // 3. FAQ Accordion
   faqItems.forEach(item => {
@@ -200,14 +135,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Header "Create Profile" button triggers plan selection modal
+  // Header "Create Profile" button selects Pro Plan card
   const createProfileBtns = document.querySelectorAll('#create-profile-btn');
   createProfileBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       const proCard = document.getElementById('card-pro');
       if (proCard) {
-        window.openPlanModal(proCard);
+        window.selectPlanCard(proCard);
+        proCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     });
   });
